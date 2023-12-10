@@ -1,13 +1,17 @@
 from flask import Flask, request, render_template, redirect, url_for
 import joblib
 import numpy as np
+import os
 
 # Create a Flask app
 app = Flask(__name__)
 
 # Load the trained model and scaler
-model = joblib.load('C:\\Users\\Nghia\\OneDrive\\Documents\\School\\Fall2023\\CDS 303\\Assignments\\final\\model.pkl')
-scaler = joblib.load('C:\\Users\\Nghia\\OneDrive\\Documents\\School\\Fall2023\\CDS 303\\Assignments\\final\\scaler.pkl')
+model_path = os.path.join('path', 'to', 'model.pkl')
+scaler_path = os.path.join('path', 'to', 'scaler.pkl')
+
+model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 @app.route('/', methods=['GET'])
 def home():
