@@ -7,8 +7,8 @@ import os
 app = Flask(__name__)
 
 # Load the trained model and scaler
-model_path = os.path.join('path', 'to', 'model.pkl')
-scaler_path = os.path.join('path', 'to', 'scaler.pkl')
+model_path = os.path.join('path', 'model.pkl')
+scaler_path = os.path.join('path', 'scaler.pkl')
 
 model = joblib.load(model_path)
 scaler = joblib.load(scaler_path)
