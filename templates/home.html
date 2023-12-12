@@ -46,9 +46,15 @@
         header #branding h1 {
             margin: 0;
         }
+        header .title {
+            font-size: 24px; /* Adjust the font size as needed */
+        }
+        header .name-class {
+            font-size: 14px;
+            margin-top: 5px; /* Adjust the margin to create separation */
+        }
         header nav {
             float: right;
-            margin-top: 10px;
         }
         header .highlight, header .current a {
             color: #e8491d;
@@ -57,13 +63,6 @@
         header a:hover {
             color: #ffffff;
             font-weight: bold;
-        }
-        /* Add this CSS to position your name and class title in the top right corner */
-        .name-class {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 14px;
         }
         /* Add this CSS to make the image fit within its container */
         .fit-image {
@@ -76,10 +75,10 @@
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class="highlight">COVID-19</span> Risk Prediction</h1>
-            </div>
-            <div class="name-class">
-                <p>Nghia Pham - CDS 303</p>
+                <h1><span class="highlight">COVID-19</span> <span class="title">Risk Prediction</span></h1>
+                <div class="name-class">
+                    <p>Nghia Pham - CDS 303</p>
+                </div>
             </div>
             <nav>
                 <ul>
@@ -94,7 +93,7 @@
         <p>This tool allows you to estimate the risk based on various factors such as age, medical history, and more.</p>
         <p>Click the button below to start your prediction.</p>
         <a href="/predict"><button>Predict Risk</button></a>
-      	<img src="images/Coronavirus-CDC-1600x900.jpg" class="fit-image">
+      	<img src="https://news.va.gov/wp-content/uploads/sites/3/2020/01/23313_r1.jpg" class="fit-image">
     </div>
 
 </body>
