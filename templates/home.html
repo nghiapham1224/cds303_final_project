@@ -69,6 +69,28 @@
             max-width: 100%; /* The image will never exceed the width of its container */
             height: auto; /* The height will adjust proportionally to maintain aspect ratio */
         }
+        /* Add this CSS to control the placement of the button and image */
+        .button-and-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px; /* Adjust the margin as needed */
+        }
+        /* Style the button */
+        .button-and-image button {
+            background-color: #e8491d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        /* Hover effect for the button */
+        .button-and-image button:hover {
+            background-color: #ff6347;
+        }
     </style>
 </head>
 <body>
@@ -91,9 +113,10 @@
     <div class="container">
         <h2>Welcome to the COVID-19 Risk Prediction Tool</h2>
         <p>This tool allows you to estimate the risk based on various factors such as age, medical history, and more.</p>
-        <p>Click the button below to start your prediction.</p>
-        <a href="/predict"><button>Predict Risk</button></a>
-      	<img src="https://news.va.gov/wp-content/uploads/sites/3/2020/01/23313_r1.jpg" class="fit-image">
+        <div class="button-and-image">
+            <a href="/predict"><button>Predict Risk</button></a>
+            <img src="https://news.va.gov/wp-content/uploads/sites/3/2020/01/23313_r1.jpg" class="fit-image">
+        </div>
     </div>
 
 </body>
