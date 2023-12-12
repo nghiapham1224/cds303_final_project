@@ -7,7 +7,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: white;
             text-align: center;
         }
         .container {
@@ -21,6 +21,7 @@
             padding-top: 30px;
             min-height: 70px;
             border-bottom: #e8491d 3px solid;
+            position: relative;
         }
         header a {
             color: #ffffff;
@@ -57,6 +58,18 @@
             color: #ffffff;
             font-weight: bold;
         }
+        /* Add this CSS to position your name and class title in the top right corner */
+        .name-class {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 14px;
+        }
+        /* Add this CSS to make the image fit within its container */
+        .fit-image {
+            max-width: 100%; /* The image will never exceed the width of its container */
+            height: auto; /* The height will adjust proportionally to maintain aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -64,6 +77,9 @@
         <div class="container">
             <div id="branding">
                 <h1><span class="highlight">COVID-19</span> Risk Prediction</h1>
+            </div>
+            <div class="name-class">
+                <p>Nghia Pham - CDS 303</p>
             </div>
             <nav>
                 <ul>
@@ -78,6 +94,7 @@
         <p>This tool allows you to estimate the risk based on various factors such as age, medical history, and more.</p>
         <p>Click the button below to start your prediction.</p>
         <a href="/predict"><button>Predict Risk</button></a>
+      	<img src="templates/images/Coronavirus-CDC-1600x900.jpg" alt="Image Description" class="fit-image">
     </div>
 
 </body>
