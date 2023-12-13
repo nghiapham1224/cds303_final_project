@@ -21,35 +21,51 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: #007BFF;
+            color: RED;
         }
         form {
-            border-top: 2px solid #007BFF;
+            border-top: 2px solid RED;
             padding-top: 20px;
         }
         form div {
             margin-bottom: 15px;
         }
-        label {
-            display: block;
-            margin-bottom: 5px;
+        /* Add CSS class for labels */
+        .input-label {
+            display: inline-block;
+            width: 40%;
+            margin-right: 10px;
             font-weight: bold;
+            text-align: right;
         }
-        input[type="number"],
-        select {
-            width: 50%; /* Reduce the width to make it smaller */
-            padding: 5px; /* Reduce padding for smaller elements */
-            margin: 0 auto; /* Center elements */
+        /* Add CSS class for input fields */
+        .input-field {
+            display: inline-block;
+            width: 18%;
+            padding: 5px;
+        }
+        /* Add CSS class for Sex options */
+        .sex-options {
+            display: inline-block;
+            width: auto;
+            margin-bottom: -2px;
+            text-align: left;
+        }
+        /* Style for radio inputs within Sex options */
+        .sex-options label {
+            display: inline-block;
+            margin-right: -21px; /* Adjust the margin as needed to control spacing */
+            cursor: pointer;
         }
         button {
-            width: 50%; /* Reduce the width of the button */
+            width: 50%;
             background-color: #007BFF;
             color: #fff;
             border: none;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin: 0 auto; /* Center the button */
+            margin: 0 auto;
         }
         button:hover {
             background-color: #0056b3;
@@ -105,21 +121,27 @@
         <h2>COVID-19 Risk Prediction Form</h2>
         <form action="/predict" method="POST" onsubmit="updateForm()">
             <div>
-                <label for="AGE">Age:</label>
-                <input type="number" id="AGE" name="AGE" required>
+                <label for="AGE" class="input-label">AGE:</label>
+                <input type="number" id="AGE" name="AGE" required class="input-field">
             </div>
             <div>
-                <label>Sex:</label>
-                <input type="radio" id="female" name="SEX" value="1" onclick="updateSexAndPregnant()" required> Female
-                <input type="radio" id="male" name="SEX" value="2" onclick="updateSexAndPregnant()"> Male
+                <label class="input-label">SEX:</label>
+                <div class="sex-options">
+                    <label>
+                        <input type="radio" id="female" name="SEX" value="1" onclick="updateSexAndPregnant()" required> Female
+                    </label>
+                    <label style="margin-left: 20px;"> <!-- Adjust margin as needed -->
+                        <input type="radio" id="male" name="SEX" value="2" onclick="updateSexAndPregnant()"> Male
+                    </label>                    
+                </div>
             </div>
             <div id="pregnantSection" style="display: none;">
-                <label>Pregnant:</label>
-                <input type="checkbox" id="PREGNANT" name="PREGNANT" value="1">
+                <label for="PREGNANT" class="input-label">PREGNANT:</label>
+                <input type="checkbox" id="PREGNANT" name="PREGNANT" value="1" class="input-field">
             </div>
             <div>
-                <label for="MEDICAL_UNIT">MEDICAL_UNIT:</label>
-                <select id="MEDICAL_UNIT" name="MEDICAL_UNIT">
+                <label for="MEDICAL_UNIT" class="input-label">MEDICAL UNIT:</label>
+                <select id="MEDICAL_UNIT" name="MEDICAL_UNIT" class="input-field">
                     <script>
                         for (var i = 1; i <= 13; i++) {
                             document.write('<option value="' + i + '">' + i + '</option>');
@@ -128,63 +150,63 @@
                 </select>
             </div>
             <div>
-                <label for="PATIENT_TYPE">PATIENT_TYPE:</label>
-                <select id="PATIENT_TYPE" name="PATIENT_TYPE">
+                <label for="PATIENT_TYPE" class="input-label">PATIENT TYPE:</label>
+                <select id="PATIENT_TYPE" name="PATIENT_TYPE" class="input-field">
                     <option value="1">Discharged</option>
                     <option value="2">Hospitalized</option>
                 </select>
             </div>
             <div>
-                <label for="USMER">USMER:</label>
-                <input type="checkbox" id="USMER" name="USMER" value="1">
+                <label for="USMER" class="input-label">USMER:</label>
+                <input type="checkbox" id="USMER" name="USMER" value="1" class="input-field">
             </div>
             <div>
-                <label>PNEUMONIA:</label>
-                <input type="checkbox" id="PNEUMONIA" name="PNEUMONIA" value="1">
+                <label class="input-label">PNEUMONIA:</label>
+                <input type="checkbox" id="PNEUMONIA" name="PNEUMONIA" value="1" class="input-field">
             </div>
             <div>
-                <label>DIABETES:</label>
-                <input type="checkbox" id="DIABETES" name="DIABETES" value="1">
+                <label class="input-label">DIABETES:</label>
+                <input type="checkbox" id="DIABETES" name="DIABETES" value="1" class="input-field">
             </div>
             <div>
-                <label>COPD:</label>
-                <input type="checkbox" id="COPD" name="COPD" value="1">
+                <label class="input-label">COPD:</label>
+                <input type="checkbox" id="COPD" name="COPD" value="1" class="input-field">
             </div>
             <div>
-                <label>ASTHMA:</label>
-                <input type="checkbox" id="ASTHMA" name="ASTHMA" value="1">
+                <label class="input-label">ASTHMA:</label>
+                <input type="checkbox" id="ASTHMA" name="ASTHMA" value="1" class="input-field">
             </div>
             <div>
-                <label>INMSUPR:</label>
-                <input type="checkbox" id="INMSUPR" name="INMSUPR" value="1">
+                <label class="input-label">INMSUPR:</label>
+                <input type="checkbox" id="INMSUPR" name="INMSUPR" value="1" class="input-field">
             </div>
             <div>
-                <label>HIPERTENSION:</label>
-                <input type="checkbox" id="HIPERTENSION" name="HIPERTENSION" value="1">
+                <label class="input-label">HYPERTENSION:</label>
+                <input type="checkbox" id="HIPERTENSION" name="HIPERTENSION" value="1" class="input-field">
             </div>
             <div>
-                <label>CARDIOVASCULAR:</label>
-                <input type="checkbox" id="CARDIOVASCULAR" name="CARDIOVASCULAR" value="1">
+                <label class="input-label">CARDIOVASCULAR:</label>
+                <input type="checkbox" id="CARDIOVASCULAR" name="CARDIOVASCULAR" value="1" class="input-field">
             </div>
             <div>
-                <label>OBESITY:</label>
-                <input type="checkbox" id="OBESITY" name="OBESITY" value="1">
+                <label class="input-label">OBESITY:</label>
+                <input type="checkbox" id="OBESITY" name="OBESITY" value="1" class="input-field">
             </div>
             <div>
-                <label>RENAL_CHRONIC:</label>
-                <input type="checkbox" id="RENAL_CHRONIC" name="RENAL_CHRONIC" value="1">
+                <label class="input-label">RENAL CHRONIC:</label>
+                <input type="checkbox" id="RENAL_CHRONIC" name="RENAL_CHRONIC" value="1" class="input-field">
             </div>
             <div>
-                <label>TOBACCO:</label>
-                <input type="checkbox" id="TOBACCO" name="TOBACCO" value="1">
+                <label class="input-label">TOBACCO:</label>
+                <input type="checkbox" id="TOBACCO" name="TOBACCO" value="1" class="input-field">
             </div>
             <div>
-                <label>OTHER_DISEASE:</label>
-                <input type="checkbox" id="OTHER_DISEASE" name="OTHER_DISEASE" value="1">
+                <label class="input-label">OTHER DISEASE:</label>
+                <input type="checkbox" id="OTHER_DISEASE" name="OTHER_DISEASE" value="1" class="input-field">
             </div>
             <div>
-                <label for="CLASIFFICATION_FINAL">CLASIFFICATION_FINAL:</label>
-                <select id="CLASIFFICATION_FINAL" name="CLASIFFICATION_FINAL" onchange="updateCovidStatus()">
+                <label for="CLASIFFICATION_FINAL" class="input-label">COVID CLASIFFICATION:</label>
+                <select id="CLASIFFICATION_FINAL" name="CLASIFFICATION_FINAL" onchange="updateCovidStatus()" class="input-field">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
